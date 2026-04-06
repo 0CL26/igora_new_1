@@ -118,10 +118,10 @@ document.addEventListener("DOMContentLoaded", async function () {
       observeParents: true,
       observeSlideChildren: true,
 
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
+navigation: {
+  nextEl: ".house-button-next",
+  prevEl: ".house-button-prev",
+},
 
       breakpoints: {
         320: {
