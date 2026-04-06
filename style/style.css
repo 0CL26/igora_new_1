@@ -729,17 +729,31 @@ color: var(--black50pr);
 }
 .house-slider__wrapper {
 }
-.errow__wrapper{
- display: flex;
- justify-content: space-between;
- align-items: center;
- position: absolute;
- width: 96%;
- z-index: 2;
- top: 34%;
- left: 50%;
- transform: translate(-50%,-50%);
+
+
+
+
+
+.errow__wrapper {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+  pointer-events: none;
 }
+
+.errow__wrapper .swiper-button {
+  pointer-events: all;
+}
+
+
+
+
+
 .swiper-button {
  cursor: pointer;
  width: 31px;
