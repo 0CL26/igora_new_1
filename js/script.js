@@ -95,9 +95,6 @@ document.addEventListener("DOMContentLoaded", function() {
 // --------- swiper house
 document.addEventListener('DOMContentLoaded', () => {
 	const swiper = new Swiper(".house-slider", {
-  slidesPerView: 3,
-  spaceBetween: 20,
-  loop: true,
 
   navigation: {
     nextEl: ".swiper-button-next",
