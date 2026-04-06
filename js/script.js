@@ -229,3 +229,52 @@ document.querySelector('input[name="fone"]').addEventListener('input', function 
  document.addEventListener('DOMContentLoaded', () => {
 	forms();
  });
+
+
+document.addEventListener("DOMContentLoaded", async function () {
+  const container = document.getElementById("houses-container");
+
+  if (!container) return;
+
+  try {
+    const response = await fetch("/api/get-houses");
+    const houses = await response.json();
+
+    houses.forEach(house => {
+      const slide = document.createElement("div");
+      slide.className = "house-slider__slide swiper-slide";
+
+      slide.innerHTML = `
+        <a href="#form" class="house__inner--link inner-house">
+          <div class="inner-house__img">
+            <img src="${house.image_url}" alt="image">
+            <span>${house.badge || ''}</span>
+          </div>
+          <div class="inner-house__label label-house">
+            <div class="label-house__prise">
+              <p class="prise__ru">${house.price} <span class="prise__kv">${house.area}</span></p>
+              <h4 class="label-house__title"><p>${house.title}</p></h4>
+              <div class="label-house__adress">
+                <p>${house.address}</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      `;
+
+      container.appendChild(slide);
+    });
+
+    // ОБНОВЛЯЕМ SWIPER
+    if (typeof Swiper !== "undefined") {
+      new Swiper(".house-slider", {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        loop: true,
+      });
+    }
+
+  } catch (error) {
+    console.error("Ошибка загрузки домов:", error);
+  }
+});
