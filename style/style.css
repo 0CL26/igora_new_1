@@ -745,13 +745,38 @@ color: var(--black50pr);
 	width: 31px;
 	height: 31px;
 }
-.swiper-button img{
-	width: 31px;
-	object-fit: contain;
+
+
+
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #7a7a7a; /* серый как на макете */
+}  
+.house-slider {
+  position: relative;
 }
-.house-button-next img{
-	transform: rotate(-180deg);
+
+.swiper-button-next,
+.swiper-button-prev {
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 10;
 }
+
+/* немного отступить от краёв */
+.swiper-button-prev {
+  left: -10px;
+}
+
+.swiper-button-next {
+  right: -10px;
+}
+
+
+
+
+
 .swiper-button-disabled{
 	opacity: 0.3;
 	cursor: default;
